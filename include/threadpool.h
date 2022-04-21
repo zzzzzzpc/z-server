@@ -100,6 +100,7 @@ void threadpool<T>::run() {
             continue;
         }
         T* request = m_workqueue.front();
+        m_workqueue.pop_front();
         m_queuelocker.unlock();
         if(!request) {
             continue;
